@@ -15,14 +15,14 @@ import re
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv() # .env 파일에서 환경변수 불러오기
 
 INSTAGRAM_ID = os.getenv("INSTAGRAM_ID")
 INSTAGRAM_PW = os.getenv("INSTAGRAM_PW")
 
-TARGET_PROFILE = 'https://www.instagram.com/alliance.student.konkuk/'
+TARGET_PROFILE = 'https://www.instagram.com/alliance.student.konkuk'
 category = 7 # 7은 카페, 8은 음식점, 9는 호프집
-result_lst=[]
+
 def login_instagram(driver):
     driver.get("https://www.instagram.com/accounts/login/")
     time.sleep(3)
