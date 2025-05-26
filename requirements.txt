@@ -1,0 +1,1 @@
+pip install selenium pymysql python-dotenv webdriver-manager cryptography
