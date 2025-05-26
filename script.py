@@ -20,7 +20,7 @@ INSTAGRAM_ID = os.getenv("INSTAGRAM_ID")
 INSTAGRAM_PW = os.getenv("INSTAGRAM_PW")
 
 TARGET_PROFILE = 'https://www.instagram.com/alliance.student.konkuk/'
-CATEGORY = 8  # 7: 카페, 8: 음식점, 9: 호프
+CATEGORY = 9  # 7: 카페, 8: 음식점, 9: 호프
 
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = int(os.getenv("DB_PORT"))
@@ -36,12 +36,12 @@ def login_instagram(driver):
     time.sleep(3)
     driver.find_element(By.NAME, "username").send_keys(INSTAGRAM_ID)
     driver.find_element(By.NAME, "password").send_keys(INSTAGRAM_PW, Keys.RETURN)
-    time.sleep(7)
+    time.sleep(10)
 
 
 def collect_links(driver, category):
     driver.get(TARGET_PROFILE)
-    time.sleep(5)
+    time.sleep(10)
 
     story_icon = WebDriverWait(driver, 5).until(
         EC.element_to_be_clickable((By.XPATH, f'//ul/li[{category}]/div/div/div'))
@@ -142,7 +142,7 @@ def save_not_found_list(not_found):
     filename = f"restaurant_not_found_{timestamp}.csv"
     with open(filename, "w", newline='', encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(["restaurant_name", "benefit_info"])
+        writer.writerow(["restaurant_name", "partnership_info"])
         writer.writerows(not_found)
     print(f"📄 못 찾은 식당 저장 완료: {filename}")
 

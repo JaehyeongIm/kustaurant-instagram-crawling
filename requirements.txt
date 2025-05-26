@@ -1,1 +1,5 @@
-pip install selenium pymysql python-dotenv webdriver-manager cryptography
+selenium==4.33.0
+webdriver-manager==4.0.2
+python-dotenv==1.1.0
+PyMySQL==1.1.1
+cryptography==45.0.3
